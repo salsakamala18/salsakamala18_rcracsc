@@ -32,7 +32,7 @@ proxy-groups:
     type: load-balance
     url: http://www.google.com/generate_204
     interval: 300
-    strategy: consistent-hashing
+    strategy: consistent-hashing # consistent-hashing
     proxies:
       - socks1
   - name: ⚖️ Load balancing - Polling
