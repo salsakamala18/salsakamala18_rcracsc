@@ -171,7 +171,7 @@ proxies:
 proxy-groups:
   - name: "A"
     type: select
-    strategy: round-robin
+    strategy: consistent-hashing # round-robin
     disable-udp: false
     proxies:
       - 'US'
