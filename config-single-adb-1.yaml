@@ -1,0 +1,390 @@
+#port: 7890
+#socks-port: 7891
+#redir-port: 7892
+#mixed-port: 7896
+#tproxy-port: 7895
+ipv6: false
+mode: rule
+log-level: info
+allow-lan: false
+#external-controller: 127.0.0.1:9090
+#secret: "12345"
+bind-address: "*"
+unified-delay: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+  store-fakeip: true
+hosts:
+  'mtalk.google.com': 108.177.125.188
+  'dl.google.com': 180.163.151.161
+  'dl.l.google.com': 180.163.151.161
+#  'space.byu.id': 162.159.128.79 # 162.159.138.78
+  'dns.twnic.tw': 101.101.101.101
+  'cloudflare-dns.com': 104.16.248.249 # 104.16.249.249
+dns:
+#  enable: true
+  enabled: true
+  ipv6: false
+  use-hosts: true
+  enhanced-mode: fake-ip
+  listen: 127.0.0.1:1053
+  nameserver:
+#    - 223.5.5.5
+#    - 119.29.29.29
+ #   - 1.1.1.1
+    - https://dns.twnic.tw/dns-query # 101.101.101.101
+    - tls://dns.rubyfish.cn:853 # 175.24.154.66
+#    - 8.8.8.8
+#    - 1.0.0.1
+#    - https://dns.google/dns-query
+  fallback:
+#    - 223.5.5.5
+#    - 119.29.29.29
+#    - 1.1.1.1
+#    - 8.8.4.4
+    - https://cloudflare-dns.com/dns-query
+#    - 112.215.203.254
+#  default-nameserver:
+#    - 223.5.5.5
+#    - 119.29.29.29
+#    - 8.8.8.8
+#    - 1.1.1.1
+#    - 112.215.203.254
+#  nameserver:
+#    - 1.1.1.1
+#    - 223.5.5.5
+#    - 119.29.29.29
+#    - https://dns.twnic.tw/dns-query # 101.101.101.101
+#    - tls://dns.rubyfish.cn:853 # 175.24.154.66  
+#  fallback:
+#    - https://dns.google/dns-query
+#  fallback-filter:
+#    geoip: false
+#    geoip-code: CN
+#    ipcidr:
+#      - 240.0.0.0/4
+#      - 0.0.0.0/32
+#    domain:
+#      - '+.liftoff.io'
+#  default-nameserver:
+#    - 1.1.1.1
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - +.pool.ntp.org
+    - time1.cloud.tencent.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - msftconnecttest.com
+    - msftncsi.com
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - +.srv.nintendo.net
+    - +.stun.playstation.net
+    - xbox.*.microsoft.com
+    - xnotify.xboxlive.com
+    - +.battlenet.com.cn
+    - +.wotgame.cn
+    - +.wggames.cn
+    - +.wowsgame.cn
+    - +.wargaming.net
+    - proxy.golang.org
+    - stun.*.*
+    - stun.*.*.*
+    - +.stun.*.*
+    - +.stun.*.*.*
+    - +.stun.*.*.*.*
+    - heartbeat.belkin.com
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.router.asus.com"
+    - mesu.apple.com
+    - swscan.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - lens.l.google.com
+    - stun.l.google.com
+    - +.nflxvideo.net
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.mcdn.bilivideo.cn"
+    - +.media.dssott.com
+
+proxies:
+#  - {'name': '🇸🇬SG-FF_SS_pot-SG1_GreenSSH', 'type': 'ss', 'server': 'sg01.proxysocks.xyz', 'port': 1443, 'password': 'MWQ1Z', 'cipher': 'chacha20-ietf-poly1305', 'plugin': 'obfs', 'plugin-opts': {'mode': 'tls', 'tls': True,'host': 'www.freefiremobile.com'}, 'udp': true}
+  - {'name': 'US', 'type': 'vmess', 'server': 'space.byu.id', 'port': 443, 'uuid': '3fd7b958-2161-46e1-b6fc-bd6bb2165312', 'alterId': '0', 'cipher': 'auto', 'tls': True, 'skip-cert-verify': True, 'servername': 'shs.xiaoqi666.xyz', 'network': 'ws', 'ws-opts': {'path': '/', 'headers': {'Host': 'shs.xiaoqi666.xyz'}, 'mux': False}, 'udp': True}
+
+proxy-groups:
+  - name: "A"
+    type: select
+    strategy: round-robin
+    disable-udp: false
+    proxies:
+      - 'US'
+    url: http://www.gstatic.com/generate_204
+    interval: 360
+
+rules:
+  - IP-CIDR,0.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.0.0.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.0.2.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.88.99.0/24,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,198.18.0.0/15,DIRECT,no-resolve
+  - IP-CIDR,198.51.100.0/24,DIRECT,no-resolve
+  - IP-CIDR,203.0.113.0/24,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/3,DIRECT,no-resolve
+  - IP-CIDR,::1/128,DIRECT,no-resolve
+  - IP-CIDR,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR,ff00::/8,DIRECT,no-resolve
+  - SRC-IP-CIDR,192.168.0.0/16,DIRECT
+  - DOMAIN-KEYWORD,duckduckgo.,REJECT
+  - DOMAIN,appodealx-us.appgrowth.com,REJECT # HIGH-GAME
+##- DOMAIN,sdk.api.kaffnet.com,REJECT
+##- DOMAIN,w.lazybumblebee.com,REJECT
+##- DOMAIN,impression.link,REJECT
+##- DOMAIN,events-ams.bidder.kayzen.io,REJECT
+##- DOMAIN,app-measurement.com,REJECT
+##- DOMAIN,g.s.360.cn,REJECT
+##- DOMAIN,tps.doubleverify.com,REJECT
+  - DOMAIN,images.startappservice.com,REJECT
+##- DOMAIN,adimpression.startappservice.com,REJECT
+##- DOMAIN-KEYWORD,.startappservice.com,REJECT # LOW
+##- DOMAIN,imp.control.kochava.com,REJECT
+##- DOMAIN,analytics.tresensa.com,REJECT
+##- DOMAIN,impression-asia.liftoff.io,REJECT
+##- DOMAIN,adexp.liftoff.io,REJECT
+##- DOMAIN,impression.appsflyer.com,REJECT
+##- DOMAIN,2dokpo-launches.appsflyersdk.com,REJECT
+  - DOMAIN,sf16-static.i18n-pglstatp.com,REJECT
+##- DOMAIN,tnc16-useast1a.byteoversea.com,REJECT
+##- DOMAIN,mssdk-sg-bu.byteoversea.com,REJECT
+##- DOMAIN,tnc16-alisg.byteoversea.com,REJECT
+##- DOMAIN-KEYWORD,.byteoversea.com,REJECT
+##- DOMAIN,b6b5p6y2.ssl.hwcdn.net,REJECT
+##- DOMAIN,ajs-assets.ftstatic.com,REJECT
+##- DOMAIN,servedby.flashtalking.com,REJECT
+##- DOMAIN,sejs.moatads.com,REJECT # LOW
+##- DOMAIN,cache-ssl.celtra.io,REJECT # LOW
+##- DOMAIN,sb.scorecardresearch.com,REJECT
+##- DOMAIN,tracker.samplicio.us,REJECT
+##- DOMAIN,hubble-02.tmmp.io,REJECT
+##- DOMAIN,mf26.mobfox.com,REJECT
+##- DOMAIN,mf18.mobfox.com,REJECT
+##- DOMAIN,cs.mobfox.com,REJECT
+##- DOMAIN,c.tpbid.com,REJECT
+##- DOMAIN,view.adjust.com,REJECT
+##- DOMAIN,tnc16-useast1a.isnssdk.com,REJECT
+##- DOMAIN,tnc16-alisg.isnssdk.com,REJECT
+##- DOMAIN,kinesis.us-east-1.amazonaws.com,REJECT
+##- DOMAIN,match.prod.bidr.io,REJECT
+##- DOMAIN,us-west-2.event.prod.bidr.io,REJECT
+##- DOMAIN,sdk.s.360.cn,REJECT
+##- DOMAIN,psp.cloud.360shouji.com,REJECT
+##- DOMAIN-KEYWORD,.360shouji.com,REJECT
+##- DOMAIN,default-cluster.push.cloud-en.360shouji.com,REJECT
+  - DOMAIN,appupdate.cloud-en.360os.com,REJECT
+  - DOMAIN,xeye.cloud.360os.com,REJECT
+  - DOMAIN-KEYWORD,.360os.com,REJECT
+##- DOMAIN,api-en.os.qiku.com,REJECT
+  - DOMAIN,api16-access-sg.pangle.io,REJECT
+  - DOMAIN,api16-log-sg2.pangle.io,REJECT # HIGH
+##- DOMAIN-KEYWORD,.pangle.io,REJECT
+  - DOMAIN,onesoft.com.vn,REJECT # HIGH
+##- DOMAIN,firebaseremoteconfig.googleapis.com,REJECT
+##- DOMAIN,jnn-pa.googleapis.com,REJECT
+##- DOMAIN,nearbysharing-pa.googleapis.com,REJECT
+##- DOMAIN,safebrowsing.googleapis.com,REJECT
+##- DOMAIN,vst.c.appier.net,REJECT
+##- DOMAIN,ad.appier.net,REJECT
+##- DOMAIN,ipds.adrta.com,REJECT
+##- DOMAIN,adrta.com,REJECT # LOW
+##- DOMAIN,widget.nl3.eu.criteo.com,REJECT
+##- DOMAIN,cat.nl3.eu.criteo.com,REJECT
+##- DOMAIN,cat.va.us.criteo.com,REJECT
+##- DOMAIN,csm.us.criteo.net,REJECT
+##- DOMAIN,rtb.da.us.criteo.com,REJECT
+##- DOMAIN,imageproxy.us.criteo.net,REJECT
+##- DOMAIN,widget.va.us.criteo.com,REJECT
+##- DOMAIN,ads.us.criteo.com,REJECT
+##- DOMAIN,cat.sg1.as.criteo.com,REJECT
+##- DOMAIN,gum.criteo.com,REJECT
+##- DOMAIN,cat.fr3.eu.criteo.com,REJECT
+##- DOMAIN,csm.as.criteo.net,REJECT
+##- DOMAIN,csm.eu.criteo.net,REJECT
+##- DOMAIN,imageproxy.eu.criteo.net,REJECT
+##- DOMAIN,static.criteo.net,REJECT
+##- DOMAIN,widget.sg1.as.criteo.com,REJECT
+##- DOMAIN,ads.as.criteo.com,REJECT
+##- DOMAIN,ads.eu.criteo.com,REJECT
+##- DOMAIN,dis.criteo.com,REJECT
+##- DOMAIN-KEYWORD,.criteo.com,REJECT # LOW
+##- DOMAIN,cdn.admaxim.com,REJECT
+##- DOMAIN,b1sync.zemanta.com,REJECT
+##- DOMAIN,imp-lb-us2.jampp.com,REJECT
+##- DOMAIN,cdn.jampp.com,REJECT
+##- DOMAIN,imgx.jampp.com,REJECT
+##- DOMAIN,p16-sign-sg.tiktokcdn.com,REJECT
+  - DOMAIN,sdk-diagnostics.prd.mz.internal.unity3d.com,REJECT
+  - DOMAIN,events.mz.unity3d.com,REJECT
+  - DOMAIN-KEYWORD,.mz.unity3d.com,REJECT
+  - DOMAIN,auction-load.unityads.unity3d.com,REJECT
+  - DOMAIN,configv2.unityads.unity3d.com,REJECT
+  - DOMAIN-KEYWORD,.unityads.unity3d.com,REJECT
+##- DOMAIN,s0.2mdn.net,REJECT
+##- DOMAIN,gcdn.2mdn.net,REJECT
+##- DOMAIN,sync-openx.ads.yieldmo.com,REJECT
+##- DOMAIN,sync-beeswax.ads.yieldmo.com,REJECT
+##- DOMAIN,sync-eq.ads.yieldmo.com,REJECT
+##- DOMAIN,sync-iqzone.ads.yieldmo.com,REJECT
+##- DOMAIN,static.yieldmo.com,REJECT
+##- DOMAIN,ads.yieldmo.com,REJECT
+##- DOMAIN,static.adsafeprotected.com,REJECT
+##- DOMAIN,pixel.adsafeprotected.com,REJECT
+  - DOMAIN,playable-stats.mindworks-creative.com,REJECT
+  - DOMAIN-KEYWORD,.mindworks-creative.com,REJECT
+##- DOMAIN,d1om9znyumzhxf.cloudfront.net,REJECT
+##- DOMAIN,ams3-ib.adnxs.com,REJECT # LOW
+##- DOMAIN,lax1-ib.adnxs.com,REJECT
+##- DOMAIN,crcdn01.adnxs.com,REJECT
+##- DOMAIN,cdn.adnxs.com,REJECT
+##- DOMAIN,ams3-ib.adnxs.com,REJECT
+##- DOMAIN,use.trk.svr-algorix.com,REJECT
+##- DOMAIN,rtb.mfadsrvr.com,REJECT
+##- DOMAIN,match.adsrvr.org,REJECT
+##- DOMAIN,vae-bid.adsrvr.org,REJECT
+##- DOMAIN,de1-bid.adsrvr.org,REJECT
+##- DOMAIN,usw-ca2.adsrvr.org,REJECT
+##- DOMAIN,ade.googlesyndication.com,REJECT
+##- DOMAIN,tpc.googlesyndication.com,REJECT
+##- DOMAIN,pagead2.googlesyndication.com,REJECT
+##- DOMAIN,pagead2.googleadservices.com,REJECT
+##- DOMAIN,www.googleadservices.com,REJECT
+##- DOMAIN,encrypted-tbn3.gstatic.com,REJECT
+##- DOMAIN,encrypted-tbn1.gstatic.com,REJECT
+##- DOMAIN,ad.doubleclick.net,REJECT
+##- DOMAIN,cm.g.doubleclick.net,REJECT
+##- DOMAIN,googleads4.g.doubleclick.net,REJECT
+##- DOMAIN,googleads.g.doubleclick.net,REJECT
+##- DOMAIN,android.apis.google.com,REJECT
+##- DOMAIN,mtalk.google.com,REJECT
+##- DOMAIN,track-us.bidease.com,REJECT
+##- DOMAIN,creative-bunny.bidease.com,REJECT
+  - DOMAIN,creative-cdn77.bidease.com,REJECT
+##- DOMAIN,creative.bidease.com,REJECT
+##- DOMAIN,dc.holalauncher.com,REJECT
+##- DOMAIN,v.holalauncher.com,REJECT
+  - DOMAIN-KEYWORD,.holalauncher.com,REJECT
+  - DOMAIN,assets.mintegral.com,REJECT
+  - DOMAIN-KEYWORD,.mintegral.com,REJECT
+  - DOMAIN,pok.mintegral.net,REJECT
+  - DOMAIN,analytics-tcp.mintegral.net,REJECT
+  - DOMAIN-KEYWORD,.mintegral.net,REJECT
+  - DOMAIN,d.applvn.com,REJECT
+  - DOMAIN,a.applvn.com,REJECT
+  - DOMAIN,ms.applvn.com,REJECT
+  - DOMAIN,ms4.applvn.com,REJECT
+  - DOMAIN,rt.applvn.com,REJECT # LOW
+##- DOMAIN-KEYWORD,.applvn.com,REJECT
+##- DOMAIN,assets.applovin.com,REJECT
+  - DOMAIN,d.applovin.com,REJECT
+  - DOMAIN,ms4.applovin.com,REJECT
+  - DOMAIN,ms.applovin.com,REJECT
+  - DOMAIN,prod-bid.applovin.com,REJECT
+##- DOMAIN,prod-a4.applovin.com,REJECT
+  - DOMAIN,res1.applovin.com,REJECT
+  - DOMAIN,img.applovin.com,REJECT
+##- DOMAIN,stage-mediate-events.applovin.com,REJECT
+##- DOMAIN,prod-mediate-events.applovin.com,REJECT
+##- DOMAIN,prod-a-events.applovin.com,REJECT
+  - DOMAIN,a4.applovin.com,REJECT
+##- DOMAIN,rt.applovin.com,REJECT
+  - DOMAIN,policy-tcp.rayjump.com,REJECT
+  - DOMAIN,tknet.rayjump.com,REJECT
+  - DOMAIN,tknet-cdn.rayjump.com,REJECT
+  - DOMAIN,hybird.rayjump.com,REJECT
+  - DOMAIN,play.rayjump.com,REJECT
+##- DOMAIN,sg01-cdn.rayjump.com,REJECT
+##- DOMAIN,sg01.rayjump.com,REJECT
+##- DOMAIN,"ir-new-cdn-eu-west-1b-hb.rayjump.com,REJECT
+##- DOMAIN,"ir-new-cdn-eu-west-1a-hb.rayjump.com,REJECT
+##- DOMAIN,"ir-new-cdn-eu-west-1c-hb.rayjump.com,REJECT
+  - DOMAIN,configure-tcp-android.rayjump.com,REJECT
+  - DOMAIN,se-new-cdn-ap-northeast-2c-hb.rayjump,REJECT
+  - DOMAIN,vg-aws-cdn-us-east-1b-hb.rayjump.com,REJECT
+  - DOMAIN,vg-aws-cdn-us-east-1a-hb.rayjump.com,REJECT
+  - DOMAIN,vg-new-hb.rayjump.com,REJECT # HIGH-GAME
+  - DOMAIN,se-new-cdn-ap-northeast-2a-hb.rayjump.com,REJECT
+  - DOMAIN,cdn-adn-gcp.rayjump.com,REJECT
+  - DOMAIN,de01.rayjump.com,REJECT
+  - DOMAIN,us01.rayjump.com,REJECT
+  - DOMAIN,net-ir-cdn.rayjump.com,REJECT
+##- DOMAIN,net-se-cdn.rayjump.com,REJECT
+  - DOMAIN,net-vg.rayjump.com,REJECT
+  - DOMAIN,net-sg-cdn.rayjump.com,REJECT
+  - DOMAIN,us01-cdn.rayjump.com,REJECT
+##- DOMAIN,adx-tk.rayjump.com,REJECT
+  - DOMAIN,configure-tcp-android.rayjump.com,REJECT
+  - DOMAIN,net.rayjump.com,REJECT # LOW
+##- DOMAIN-KEYWORD,.rayjump.com,REJECT
+  - MATCH,A
