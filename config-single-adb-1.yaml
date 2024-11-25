@@ -166,7 +166,7 @@ dns:
 
 proxies:
 #  - {'name': '🇸🇬SG-FF_SS_pot-SG1_GreenSSH', 'type': 'ss', 'server': 'sg01.proxysocks.xyz', 'port': 1443, 'password': 'MWQ1Z', 'cipher': 'chacha20-ietf-poly1305', 'plugin': 'obfs', 'plugin-opts': {'mode': 'tls', 'tls': True,'host': 'www.freefiremobile.com'}, 'udp': true}
-  - {'name': 'US', 'type': 'vmess', 'server': 'space.byu.id', 'port': 443, 'uuid': '3fd7b958-2161-46e1-b6fc-bd6bb2165312', 'alterId': '0', 'cipher': 'auto', 'tls': True, 'skip-cert-verify': True, 'servername': 'shs.xiaoqi666.xyz', 'network': 'ws', 'ws-opts': {'path': '/', 'headers': {'Host': 'shs.xiaoqi666.xyz'}, 'mux': False}, 'udp': True}
+  - { name: 'US', type: socks5, server: 203.166.138.223, port: 46952, username: User, password: pass, udp: true }
 
 proxy-groups:
   - name: "A"
