@@ -355,10 +355,10 @@ rules:
   - DOMAIN,res1.applovin.com,REJECT
   - DOMAIN,img.applovin.com,REJECT
 ##- DOMAIN,stage-mediate-events.applovin.com,REJECT
-##- DOMAIN,prod-mediate-events.applovin.com,REJECT
-##- DOMAIN,prod-a-events.applovin.com,REJECT
+  - DOMAIN,prod-mediate-events.applovin.com,REJECT
+  - DOMAIN,prod-a-events.applovin.com,REJECT
   - DOMAIN,a4.applovin.com,REJECT
-##- DOMAIN,rt.applovin.com,REJECT
+  - DOMAIN,rt.applovin.com,REJECT
   - DOMAIN,policy-tcp.rayjump.com,REJECT
   - DOMAIN,tknet.rayjump.com,REJECT
   - DOMAIN,tknet-cdn.rayjump.com,REJECT
