@@ -13,14 +13,14 @@ dns:
     enable: true
     enhanced-mode: fake-ip
     ipv6: false
-    default-nameserver: [223.5.5.5, 119.29.29.29]
+##    default-nameserver: [223.5.5.5, 119.29.29.29]
     fake-ip-range: 198.18.0.1/16
     use-hosts: true
     nameserver: ['https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
     fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://1.0.0.1:853', 'tls://8.8.4.4:853']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-    - { name: 'socks1', type: socks5, server: 203.166.138.223, port: 46952, username: User, password: pass, udp: true }
+    - { name: 'socks1', type: socks5, server: 177.54.154.87, port: 11721, username: e594eb46be8940ae4eca, password: a61fa9971448fb7d, udp: true }
 proxy-groups:
   - name: Proxy
     type: select
