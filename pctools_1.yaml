@@ -20,7 +20,7 @@ dns:
     fallback: ['https://doh.dns.sb/dns-query', 'https://dns.cloudflare.com/dns-query', 'https://dns.twnic.tw/dns-query', 'tls://1.0.0.1:853', 'tls://8.8.4.4:853']
     fallback-filter: { geoip: true, ipcidr: [240.0.0.0/4, 0.0.0.0/32] }
 proxies:
-  - { name: 'vmess1', type: vmess, server: space.byu.id, port: 443, uuid: bf67437e-6c90-45ca-abc2-c7240a5ce2aa, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: foxlux.fovi.tk, network: ws, ws-opts: { path: /eisasqa, headers: { host: foxlux.fovi.tk}, mux: false}, udp: true}
+  - { name: 'vmess1', type: vmess, server: space.byu.id, port: 443, uuid: 6c168fcc-2231-4f3b-8c1e-f6391692df4a, alterId: 0, cipher: auto, tls: true, skip-cert-verify: true, servername: hms02.fxiaomi.sbs, network: ws, ws-opts: { path: /link, headers: { host: hms02.fxiaomi.sbs}, mux: false}, udp: true}
 proxy-groups:
   - name: Proxy
     type: select
