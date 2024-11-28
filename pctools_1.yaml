@@ -9,6 +9,9 @@ clash-for-android:
     append-system-dns: false
 profile:
     tracing: false ## default=true
+    store-selected: true
+    store-fake-ip: true
+    store-fakeip: true
 dns:
     enabled: true
     enhanced-mode: fake-ip ## redir-host
