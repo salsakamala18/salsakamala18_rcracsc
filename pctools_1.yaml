@@ -11,7 +11,7 @@ profile:
     tracing: true
 dns:
     enabled: true
-    enhanced-mode: redir-host ## fake-ip
+    enhanced-mode: fake-ip ## redir-host
     ipv6: false
 ##    default-nameserver: [223.5.5.5, 119.29.29.29]
     fake-ip-range: 198.18.0.1/16
