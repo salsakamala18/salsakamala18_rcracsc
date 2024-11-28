@@ -9,6 +9,13 @@ clash-for-android:
     append-system-dns: false
 profile:
     tracing: false ## default=true
+hosts:
+  'mtalk.google.com': 108.177.125.188
+  'dl.google.com': 180.163.151.161
+  'dl.l.google.com': 180.163.151.161
+#  'space.byu.id': 162.159.128.79 # 162.159.138.78
+  'dns.twnic.tw': 101.101.101.101
+  'cloudflare-dns.com': 104.16.248.249 # 104.16.249.249
 dns:
     enabled: true
     enhanced-mode: fake-ip ## redir-host
